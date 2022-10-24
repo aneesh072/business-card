@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from './Card';
 
 const Form = () => {
-  /*   const [name, setname] = useState('');
-  const [position, setPosition] = useState('');
-  const [organization, setOrganization] = useState('');
-  const [address1, setAddress1] = useState('');
-  const [address2, setAddress2] = useState('');
-  const [website, setWebsite] = useState('');
-  const [email, setEmail] = useState(''); */
-
   const [inputs, setInputs] = useState({});
+  const [images, setImages] = useState([]);
+  const [imageURLs, setImageURLs] = useState([]);
+
+  useEffect(() => {
+    if (images.length < 1) return;
+    const newImageUrls = [];
+    images.forEach((image) => newImageUrls.push(URL.createObjectURL(image)));
+    setImageURLs(newImageUrls);
+  }, [images]);
+
+  const handleImageChange = (e) => {
+    setImages([...e.target.files]);
+  };
 
   const handleInputChange = (event) => {
     const name = event.target.name;
@@ -19,6 +24,16 @@ const Form = () => {
   };
   const { name, position, organization, address1, address2, website, email } =
     inputs;
+
+  function logo() {
+    return (
+      <>
+        {imageURLs.map((imageSrc) => (
+          <img src={imageSrc} />
+        ))}
+      </>
+    );
+  }
 
   return (
     <>
@@ -117,6 +132,19 @@ const Form = () => {
                   />
                 </td>
               </tr>
+              <tr>
+                <td>
+                  <label>Logo</label>
+                </td>
+                <td>
+                  <input
+                    type="file"
+                    miltiple
+                    accept="image/*"
+                    onChange={handleImageChange}
+                  />
+                </td>
+              </tr>
             </tbody>
           </table>
         </form>
@@ -129,6 +157,7 @@ const Form = () => {
         address2={inputs.address2}
         website={inputs.website}
         email={inputs.email}
+        logo={logo()}
       />
     </>
   );
