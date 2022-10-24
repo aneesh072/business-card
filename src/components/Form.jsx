@@ -139,7 +139,7 @@ const Form = () => {
                 <td>
                   <input
                     type="file"
-                    miltiple
+                    multiple
                     accept="image/*"
                     onChange={handleImageChange}
                   />
