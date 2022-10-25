@@ -56,6 +56,19 @@ const Form = () => {
               </tr>
               <tr>
                 <td>
+                  <label>Organization</label>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="organization"
+                    value={inputs.organization || ''}
+                    onChange={handleInputChange}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
                   <label>Position</label>
                 </td>
                 <td>
@@ -63,19 +76,6 @@ const Form = () => {
                     type="text"
                     name="position"
                     value={inputs.position || ''}
-                    onChange={handleInputChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label>Orzanization</label>
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    name="organization"
-                    value={inputs.organization || ''}
                     onChange={handleInputChange}
                   />
                 </td>
@@ -102,6 +102,19 @@ const Form = () => {
                     type="text"
                     name="address2"
                     value={inputs.address2 || ''}
+                    onChange={handleInputChange}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>Mobile</label>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="mobile"
+                    value={inputs.mobile || ''}
                     onChange={handleInputChange}
                   />
                 </td>
@@ -157,6 +170,7 @@ const Form = () => {
         address2={inputs.address2}
         website={inputs.website}
         email={inputs.email}
+        mobile={inputs.mobile}
         logo={logo()}
       />
     </>
