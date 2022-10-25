@@ -5,6 +5,7 @@ import { GlobalStyles } from './theme/GlobalStyles';
 import { useTheme } from './theme/useTheme';
 import Form from './components/Form';
 import ThemeSelector from './ThemeSelector';
+import Dialog from './Dialog';
 import CreateThemeContent from './CreateThemeContent';
 
 const Container = styled.div`
@@ -14,6 +15,8 @@ const Container = styled.div`
 const App = () => {
   const { theme, themeLoaded, getFonts } = useTheme();
   const [selectedTheme, setSelectedTheme] = useState(theme);
+  const [showDialog, setShowDialog] = useState(false);
+  const [newTheme, setNewTheme] = useState();
 
   useEffect(() => {
     setSelectedTheme(theme);
@@ -26,6 +29,15 @@ const App = () => {
       },
     });
   });
+
+  const manageDialog = () => {
+    setShowDialog(!showDialog);
+  };
+
+  const createTheme = (newTheme) => {
+    setShowDialog(false);
+    setNewTheme(newTheme);
+  };
   return (
     <>
       {themeLoaded && (
@@ -33,8 +45,16 @@ const App = () => {
           <GlobalStyles />
           <Container style={{ fontFamily: selectedTheme.font }}>
             <h1>Card Builder</h1>
-          
-            <ThemeSelector setter={setSelectedTheme} />
+            <button className="btn" onClick={manageDialog}>
+              Create a Theme
+            </button>
+            <Dialog
+              header="Create a Theme"
+              body={<CreateThemeContent create={createTheme} />}
+              open={showDialog}
+              callback={manageDialog}
+            />
+            <ThemeSelector setter={setSelectedTheme} newTheme={newTheme} />
             <Form />
           </Container>
         </ThemeProvider>
