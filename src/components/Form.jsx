@@ -38,7 +38,7 @@ const Form = () => {
   return (
     <>
       <div className="container">
-        <div className='form-container'>
+        <div className="form-container">
           <form>
             <table>
               <tbody>
@@ -93,8 +93,6 @@ const Form = () => {
                       onChange={handleInputChange}
                     />
                   </td>
-                </tr>
-                <tr>
                   <td>
                     <label>Address 2</label>
                   </td>
@@ -107,6 +105,7 @@ const Form = () => {
                     />
                   </td>
                 </tr>
+                <tr></tr>
                 <tr>
                   <td>
                     <label>Mobile</label>
@@ -159,6 +158,20 @@ const Form = () => {
                     />
                   </td>
                 </tr>
+                <tr>
+                  <td>
+                    <label>More Info</label>
+                  </td>
+                  <td>
+                    <textarea
+                      maxLength="90"
+                      type="textarea"
+                      name="more"
+                      value={inputs.more || ''}
+                      onChange={handleInputChange}
+                    />
+                  </td>
+                </tr>
               </tbody>
             </table>
           </form>
@@ -174,6 +187,7 @@ const Form = () => {
           website={inputs.website}
           email={inputs.email}
           mobile={inputs.mobile}
+          more={inputs.more}
           logo={logo()}
         />
       </div>

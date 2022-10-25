@@ -14,6 +14,7 @@ const Card = ({
   website,
   email,
   logo,
+  more
 }) => {
   const iconAddress = <FontAwesomeIcon icon={faLocation} />;
   const iconMobile = <FontAwesomeIcon icon={faMobile} />;
@@ -54,8 +55,7 @@ const Card = ({
             </div>
             <div className="info-bio">
               <p>
-                Nulla facilisi. Morbi in mauris ipsum. Etiam ut justo vel elit
-                eleifend mattis eget eget arcu.
+              {more}
               </p>
             </div>
           </div>
