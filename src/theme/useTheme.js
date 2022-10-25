@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { setToLS, getFromLS } from '../utils/storage';
 import _ from 'lodash';
 
@@ -19,8 +19,9 @@ export const useTheme = () => {
 
   useEffect(() => {
     const localTheme = getFromLS('theme');
-    localTheme ? setTheme(localTheme) : setTheme(themes.data.light);
+    localTheme ? setTheme(localTheme) : setTheme(themes.data.seaWave);
     setThemeLoaded(true);
   }, []);
+
   return { theme, themeLoaded, setMode, getFonts };
 };
