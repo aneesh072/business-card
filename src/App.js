@@ -5,6 +5,7 @@ import { GlobalStyles } from './theme/GlobalStyles';
 import { useTheme } from './theme/useTheme';
 import Form from './components/Form';
 import ThemeSelector from './ThemeSelector';
+import CreateThemeContent from './CreateThemeContent';
 
 const Container = styled.div`
   margin: 5px auto 5px auto;
@@ -32,6 +33,7 @@ const App = () => {
           <GlobalStyles />
           <Container style={{ fontFamily: selectedTheme.font }}>
             <h1>Card Builder</h1>
+          
             <ThemeSelector setter={setSelectedTheme} />
             <Form />
           </Container>
