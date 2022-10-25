@@ -25,10 +25,6 @@ const Card = ({
         <div className="business-card">
           <div className="profile">
             <div className="profile-image">
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/1608/1608123.png"
-                alt=""
-              />
               {logo}
             </div>
             <div className="profile-title">
@@ -65,7 +61,6 @@ const Card = ({
           </div>
         </div>
       </div>
-      <div className="display-item"></div>
     </div>
   );
 };

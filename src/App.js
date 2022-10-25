@@ -4,7 +4,6 @@ import WebFont from 'webfontloader';
 import { GlobalStyles } from './theme/GlobalStyles';
 import { useTheme } from './theme/useTheme';
 import Form from './components/Form';
-import Card from './components/Card';
 import ThemeSelector from './ThemeSelector';
 
 const Container = styled.div`
@@ -32,12 +31,8 @@ const App = () => {
         <ThemeProvider theme={selectedTheme}>
           <GlobalStyles />
           <Container style={{ fontFamily: selectedTheme.font }}>
-            <h1>Theme Builder</h1>
-            <p>
-              This is a theming system with a Theme Switcher and Theme Builder.
-              Do you want to see the source code?
-            </p>
-            <ThemeSelector setter={setSelectedTheme}/>
+            <h1>Card Builder</h1>
+            <ThemeSelector setter={setSelectedTheme} />
             <Form />
           </Container>
         </ThemeProvider>
